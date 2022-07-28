@@ -1,4 +1,4 @@
-﻿string[] currentArray = {"Rus", "178", "Denark", "+)", "0"};
+﻿string[] currentArray = {"Rus", "178", "Denark", "+)", "0", "1234"};
 int countElements = 0;
 
 for (int i = 0; i < currentArray.Length; i++)
@@ -11,7 +11,7 @@ for (int i = 0; i < currentArray.Length; i++)
 
 if (countElements == 0)
 {
-    Console.WriteLine("Строк длинной 3 или менее символов в массиве нет.");
+    Console.WriteLine("[]");
 }
 else
 {
@@ -20,7 +20,7 @@ else
     int newSize = 0;
 
     for (int i = 0; i < currentArray.Length; i++)
-    {
+    {      
         if (currentArray[i].Length <= 3)
         {
             temp = currentArray[i];
@@ -33,8 +33,19 @@ else
 
 void PrintArray(string [] array)
 {
-       for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]} "); 
+        if (i == 0)
+        {
+            Console.Write($"[\"{array[i]}\", ");
+        }
+        else if (i == array.Length-1)
+        {
+            Console.Write($"\"{array[i]}\"]");
+        }
+        else if (i > 0 && i < array.Length-1)
+        {
+            Console.Write($"\"{array[i]}\", ");  
+        }
     } 
 }
